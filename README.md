@@ -9,7 +9,7 @@ In order to get started you will have to deploy the lambda application using the
 Afterwards include that URL in the env file and build the front-end application by following the instructions given at the [front-end repo](https://github.com/slappforge/slappbooks-frontend).
 
 ### Prerequisites
-All deployments are based on [Amazon AWS](https://aws.amazon.com/). To open the project, you will need the Sigma IDE which can be found at https://slappforge.adroitlogic.com. You will need to create an account and provide your AWS credentials to open the project (Your AWS credentials will not be acquired by SLAppForge under any circumstances).
+All deployments are based on [Amazon AWS](https://aws.amazon.com/). To open the project, you will need the Sigma IDE which can be found at https://sigma.slappforge.com. You will need to create an account and provide your AWS credentials to open the project (Your AWS credentials will not be acquired by SLAppForge under any circumstances).
 
 ### Deployment 
 Click on the deployment button and it should deploy all lambdas that are required to run the application. 
