@@ -474,8 +474,9 @@
         "children": [],
         "isRemovable": true,
         "filePath": "slappbooks/ConnectionManager.js",
-        "code": "/*\n * Copyright (c) 2018 SLAppForge Lanka (Private) Limited. All Rights Reserved.\n * https://www.slappforge.com\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n * http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License. \n */\n\n/**\n * The file includes credentials of the RDS instance\n *\n * @author Malith Jayaweera\n */\nmodule.exports = function () {\n\n    this.dbConnections = [];\n\n    this.dbConnections[\"slappbooksdb\"] = {\n        host: process.env.EndPoint_slappbooksdb,\n        port: \"3306\",\n        user: \"slappbooksuser\",\n        password: \"12345678\",\n        database: \"slappbooksdb\",\n    };\n\n};",
-        "triggers": []
+        "code": "/*\n * Copyright (c) 2018 SLAppForge Lanka (Private) Limited. All Rights Reserved.\n * https://www.slappforge.com\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n * http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License. \n */\n\n/**\n * The file includes credentials of the RDS instance\n *\n * @author Malith Jayaweera\n */\nmodule.exports = function () {\n\n    this.dbConnections = [];\n\n    this.dbConnections[\"slappbooksdb\"] = {\n             host: process.env.EndPoint_rdsSlappbooksdb,\n             port: process.env.Port_rdsSlappbooksdb,\n             user: process.env.User_rdsSlappbooksdb,\n             password: process.env.Password_rdsSlappbooksdb,\n             database: \"slappbooksdb\",\n        };\n\n};",
+        "triggers": [],
+        "version": 2
       },
       "8585b721-aeb2-4a48-978d-ddfca08566d1": {
         "id": "8585b721-aeb2-4a48-978d-ddfca08566d1",
@@ -504,7 +505,8 @@
               "stageName": "Prod"
             }
           }
-        ]
+        ],
+        "version": 1
       },
       "3e289213-2e08-453c-a6c3-139ee447fd70": {
         "id": "3e289213-2e08-453c-a6c3-139ee447fd70",
@@ -547,7 +549,6 @@
       "1f616325-bebd-4cb6-9a59-efae98b7760d",
       "02bc79d4-d52f-4002-b502-992569e9d409",
       "8585b721-aeb2-4a48-978d-ddfca08566d1",
-      "2bf402ef-a957-429b-878f-f5b4c91f0ed3",
       "6ce22331-3d5d-4d2e-a5ff-a2f2b38257dd",
       "3e289213-2e08-453c-a6c3-139ee447fd70"
     ],
@@ -1868,6 +1869,6 @@
     "projectRegion": "us-east-1",
     "repoName": "slappbooks",
     "repoUrl": "https://github.com/janakaud/slappbooks",
-    "lastSave": 1522226099976
+    "lastSave": 1522229840266
   }
 }
