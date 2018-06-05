@@ -12,16 +12,16 @@
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
- * limitations under the License. 
+ * limitations under the License.
  */
 
 let AWS = require('aws-sdk');
 let connectionManager = require('./ConnectionManager');
-let SL = require('@slappforge/slappforge-sdk');
-const rds = new SL.AWS.RDS(connectionManager);
+let SL_AWS = require('slappforge-sdk-aws');
+const rds = new SL_AWS.RDS(connectionManager);
 
 /**
- * Lambda function retrieves a transaction. Events are submitted through the application as an identifier. 
+ * Lambda function retrieves a transaction. Events are submitted through the application as an identifier.
  * An RDS instance is used for transaction retrieval.
  *
  * @author Malith Jayaweera
@@ -33,7 +33,7 @@ exports.handler = function (event, context, callback) {
     let sql = 'SELECT T.transaction_id, T.set_id, T.date, T.cheque_no, T.is_credit, T.amount, T.notes, T.reconcile, E.name FROM ' +
         'transaction T INNER JOIN entity E on T.entity_id=E.id where T.set_id=?;';
     let transactionIdArray = [transactionId];
-    
+
     rds.query({
         instanceIdentifier: 'slappbooksdb',
         query: sql,

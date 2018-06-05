@@ -12,16 +12,16 @@
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
- * limitations under the License. 
+ * limitations under the License.
  */
 
 let AWS = require('aws-sdk');
 let connectionManager = require('./ConnectionManager');
-let SL = require('@slappforge/slappforge-sdk');
-const rds = new SL.AWS.RDS(connectionManager);
+let SL_AWS = require('slappforge-sdk-aws');
+const rds = new SL_AWS.RDS(connectionManager);
 
 /**
- * Lambda function retrieves transactions month wise while supporting pagination. Events are submitted through the application as an identifier. 
+ * Lambda function retrieves transactions month wise while supporting pagination. Events are submitted through the application as an identifier.
  * An RDS instance is used for transaction retrieval.
  *
  * @author Malith Jayaweera
@@ -43,7 +43,7 @@ exports.handler = function (event, context, callback) {
 	// retrieve transactions between the selected time frame
 	let sql = 'SELECT * FROM transaction T INNER JOIN entity E ON T.entity_id = E.id WHERE E.name =? AND date BETWEEN ? AND ?  LIMIT ?,?';
 	let entityArray = [entityName, year.concat("-").concat(month).concat("-01"), year.concat("-").concat(month).concat("-31")];
-	
+
 	rds.query({
 		instanceIdentifier: 'slappbooksdb',
 		query: 'SELECT count(*) as count FROM transaction T INNER JOIN entity E ON T.entity_id = E.id WHERE E.name=? AND date BETWEEN ? AND ?',
