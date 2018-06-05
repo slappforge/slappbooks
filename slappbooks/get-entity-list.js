@@ -12,13 +12,13 @@
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
- * limitations under the License. 
+ * limitations under the License.
  */
 
 let AWS = require('aws-sdk');
 let connectionManager = require('./ConnectionManager');
-let SL = require('@slappforge/slappforge-sdk');
-const rds = new SL.AWS.RDS(connectionManager);
+let SL_AWS = require('slappforge-sdk-aws');
+const rds = new SL_AWS.RDS(connectionManager);
 
 /**
  * Lambda function handles entity retrieval.
@@ -30,7 +30,7 @@ exports.handler = function (event, context, callback) {
 
 	let sql = 'SELECT * FROM entity;'
 
-	// Retrieve the entity objects 
+	// Retrieve the entity objects
 	rds.query({
 		instanceIdentifier: 'slappbooksdb',
 		query: sql
