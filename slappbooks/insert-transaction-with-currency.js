@@ -12,7 +12,7 @@
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
- * limitations under the License.
+ * limitations under the License. 
  */
 
 let AWS = require('aws-sdk');
@@ -22,8 +22,8 @@ const rds = new SL_AWS.RDS(connectionManager);
 
 
 /**
- * Lambda function handles transaction inserts. Events are submitted through the application as transaction objects.
- * An RDS instance is used for transaction inserts. Currency differences are also handled through this lambda function as opposed to a usual
+ * Lambda function handles transaction inserts. Events are submitted through the application as transaction objects. 
+ * An RDS instance is used for transaction inserts. Currency differences are also handled through this lambda function as opposed to a usual 
  * transaction insert.Transactional behaviour is guaranteed for the insert.
  *
  * @author Malith Jayaweera
@@ -69,7 +69,7 @@ exports.handler = function (event, context, callback) {
 
 					let transactionInsertArray = [transaction.trId, transaction.setId, transaction.date, entity_id, transaction.isCredit, transaction.checkNo, transaction.voucherNo, transaction.amount, transaction.notes, transaction.reconcile];
 					rds.query({
-						identifier: 'slappbooksdb',
+						instanceIdentifier: 'slappbooksdb',
 						query: sql,
 						inserts: transactionInsertArray
 					}, function (error, results, connection) {

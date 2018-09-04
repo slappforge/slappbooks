@@ -12,7 +12,7 @@
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
- * limitations under the License.
+ * limitations under the License. 
  */
 
 let AWS = require('aws-sdk');
@@ -21,7 +21,7 @@ let SL_AWS = require('slappforge-sdk-aws');
 const rds = new SL_AWS.RDS(connectionManager);
 
 /**
- * Lambda function handles transaction updates. Events are submitted through the application as transaction objects.
+ * Lambda function handles transaction updates. Events are submitted through the application as transaction objects. 
  * An RDS instance is used for transaction updates. Transactional behaviour is guaranteed for the update.
  *
  * @author Malith Jayaweera
@@ -41,10 +41,10 @@ exports.handler = function (event, context, callback) {
 	}, function (error, connection) {
 		if (error) { connection.rollback(); throw error; }
 
-		// Insert transactions to the database
+		// Insert transactions to the database 
 		transactions.forEach((transaction, index) => {
 			let entityArray = [transaction.entityName];
-
+			
 			rds.query({
 				instanceIdentifier: 'slappbooksdb',
 				query: 'SELECT id FROM entity WHERE name = ?',

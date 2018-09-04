@@ -12,7 +12,7 @@
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
- * limitations under the License.
+ * limitations under the License. 
  */
 
 let AWS = require('aws-sdk');
@@ -21,7 +21,7 @@ let SL_AWS = require('slappforge-sdk-aws');
 const rds = new SL_AWS.RDS(connectionManager);
 
 /**
- * Lambda function handles entity deletion. Events are submitted through the application as entity objects
+ * Lambda function handles entity deletion. Events are submitted through the application as entity objects 
  * An RDS instance is used for entity deletion.
  *
  * @author Malith Jayaweera
