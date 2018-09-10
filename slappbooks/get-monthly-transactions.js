@@ -43,7 +43,7 @@ exports.handler = function (event, context, callback) {
 	// retrieve transactions between the selected time frame
 	let sql = 'SELECT * FROM transaction T INNER JOIN entity E ON T.entity_id = E.id WHERE E.name =? AND date BETWEEN ? AND ? LIMIT ?,?';
 	let entityArray = [entityName, year.concat("-").concat(month).concat("-01"), year.concat("-").concat(month).concat("-31")];
-	
+
 	rds.query({
 		instanceIdentifier: 'slappbooksdb',
 		query: 'SELECT count(*) as count FROM transaction T INNER JOIN entity E ON T.entity_id = E.id WHERE E.name=? AND date BETWEEN ? AND ?',
